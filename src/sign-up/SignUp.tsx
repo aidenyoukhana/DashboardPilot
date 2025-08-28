@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import AppTheme from '../shared-theme/AppTheme';
+import { useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from './components/CustomIcons';
@@ -61,6 +62,7 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp(props: { disableCustomTheme?: boolean }) {
+  const navigate = useNavigate();
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
@@ -106,17 +108,25 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (nameError || emailError || passwordError) {
-      event.preventDefault();
+    // prevent default form submission (which uses GET by default and exposes values in the URL)
+    event.preventDefault();
+
+    // validate inputs; validateInputs updates the error state
+    if (!validateInputs()) {
       return;
     }
+
     const data = new FormData(event.currentTarget);
     console.log({
       name: data.get('name'),
       lastName: data.get('lastName'),
       email: data.get('email'),
+      // avoid logging passwords in production
       password: data.get('password'),
     });
+
+    // after successful sign up, navigate to sign in (replace history so back doesn't reveal sensitive data)
+    navigate('/signin', { replace: true });
   };
 
   return (
@@ -191,7 +201,6 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
               type="submit"
               fullWidth
               variant="contained"
-              onClick={validateInputs}
             >
               Sign up
             </Button>

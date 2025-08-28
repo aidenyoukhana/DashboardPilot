@@ -12,6 +12,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 import { useNavigation } from '../hooks/useNavigation';
+import { useNavigate } from 'react-router-dom';
 
 const mainListItems = [
   { text: 'Home', icon: <HomeRoundedIcon />, page: 'dashboard' as const },
@@ -28,9 +29,12 @@ const secondaryListItems = [
 
 export default function MenuContent() {
   const { setCurrentPage, currentPage } = useNavigation();
+  const navigate = useNavigate();
 
   const handleItemClick = (page: 'dashboard') => {
-    setCurrentPage(page);
+  setCurrentPage(page);
+  // keep URL in sync for the main dashboard pages
+  navigate('/dashboard');
   };
 
   return (

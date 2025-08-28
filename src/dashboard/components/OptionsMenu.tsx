@@ -32,13 +32,15 @@ export default function OptionsMenu() {
   };
 
   const handleProfileClick = () => {
-    setCurrentPage('profile');
+  setCurrentPage('profile');
+  navigate('/profile');
     handleClose();
   };
 
   const handleDashboardClick = () => {
-    setCurrentPage('dashboard');
-    handleClose();
+  setCurrentPage('dashboard');
+  navigate('/dashboard');
+  handleClose();
   };
   return (
     <React.Fragment>

@@ -9,9 +9,21 @@ import SideMenu from './components/SideMenu';
 import Profile from './pages/Profile';
 import { NavigationProvider } from './context/NavigationContext';
 import { useNavigation } from './hooks/useNavigation';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function DashboardContent() {
-  const { currentPage } = useNavigation();
+  const { currentPage, setCurrentPage } = useNavigation();
+  const location = useLocation();
+
+  // keep navigation context in sync with the URL
+  useEffect(() => {
+    if (location.pathname === '/profile') {
+      setCurrentPage('profile');
+    } else {
+      setCurrentPage('dashboard');
+    }
+  }, [location.pathname, setCurrentPage]);
 
   return (
     <Box sx={{ display: 'flex' }}>
