@@ -1,4 +1,3 @@
-import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createHashRouter, RouterProvider } from 'react-router';
 import DashboardLayout from './components/DashboardLayout';
@@ -7,7 +6,7 @@ import EmployeeShow from './components/EmployeeShow';
 import EmployeeCreate from './components/EmployeeCreate';
 import EmployeeEdit from './components/EmployeeEdit';
 import NotificationsProvider from './hooks/useNotifications/NotificationsProvider';
-import DialogsProvider from './hooks/useDialogs/DialogsProvider';
+import { DialogsProvider } from './hooks/useDialogs';
 import AppTheme from '../shared-theme/AppTheme';
 import {
   dataGridCustomizations,

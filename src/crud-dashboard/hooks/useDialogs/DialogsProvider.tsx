@@ -13,6 +13,9 @@ interface DialogStackEntry<P, R> {
   resolve: (result: R) => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyDialogStackEntry = DialogStackEntry<any, any>;
+
 export interface DialogProviderProps {
   children?: React.ReactNode;
   unmountAfter?: number;
@@ -24,11 +27,11 @@ export interface DialogProviderProps {
  */
 export default function DialogsProvider(props: DialogProviderProps) {
   const { children, unmountAfter = 1000 } = props;
-  const [stack, setStack] = React.useState<DialogStackEntry<any, any>[]>([]);
+  const [stack, setStack] = React.useState<AnyDialogStackEntry[]>([]);
   const keyPrefix = React.useId();
   const nextId = React.useRef(0);
   const dialogMetadata = React.useRef(
-    new WeakMap<Promise<any>, DialogStackEntry<any, any>>(),
+    new WeakMap<Promise<unknown>, AnyDialogStackEntry>(),
   );
 
   const requestDialog = useEventCallback<OpenDialog>(function open<P, R>(
@@ -60,9 +63,9 @@ export default function DialogsProvider(props: DialogProviderProps) {
     };
 
     // Store metadata for reliable access during close
-    dialogMetadata.current.set(promise, newEntry);
+    dialogMetadata.current.set(promise, newEntry as AnyDialogStackEntry);
 
-    setStack((prevStack) => [...prevStack, newEntry]);
+    setStack((prevStack) => [...prevStack, newEntry as AnyDialogStackEntry]);
     return promise;
   });
 

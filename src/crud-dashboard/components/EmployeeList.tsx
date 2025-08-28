@@ -8,11 +8,11 @@ import Tooltip from '@mui/material/Tooltip';
 import {
   DataGrid,
   GridActionsCellItem,
-  GridColDef,
-  GridFilterModel,
-  GridPaginationModel,
-  GridSortModel,
-  GridEventListener,
+  type GridColDef,
+  type GridFilterModel,
+  type GridPaginationModel,
+  type GridSortModel,
+  type GridEventListener,
   gridClasses,
 } from '@mui/x-data-grid';
 import AddIcon from '@mui/icons-material/Add';
@@ -20,7 +20,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
-import { useDialogs } from '../hooks/useDialogs/useDialogs';
+import { useDialogs } from '../hooks/useDialogs';
 import useNotifications from '../hooks/useNotifications/useNotifications';
 import {
   deleteOne as deleteEmployee,

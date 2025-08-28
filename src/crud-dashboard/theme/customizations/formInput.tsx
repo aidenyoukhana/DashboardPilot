@@ -1,4 +1,4 @@
-import { alpha, Theme, Components } from '@mui/material/styles';
+import { alpha, type Theme, type Components } from '@mui/material/styles';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import { inputLabelClasses } from '@mui/material/InputLabel';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
@@ -6,7 +6,6 @@ import { formHelperTextClasses } from '@mui/material/FormHelperText';
 import { iconButtonClasses } from '@mui/material/IconButton';
 import { brand } from '../../../shared-theme/themePrimitives';
 
-/* eslint-disable import/prefer-default-export */
 export const formInputCustomizations: Components<Theme> = {
   MuiFormControl: {
     styleOverrides: {
