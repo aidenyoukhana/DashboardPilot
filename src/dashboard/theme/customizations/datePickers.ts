@@ -11,6 +11,8 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
     styleOverrides: {
       paper: ({ theme }) => ({
         marginTop: 4,
+  // ensure popper content uses an explicit pixel font-size to avoid large rem scaling
+  fontSize: '13px',
         borderRadius: theme.shape.borderRadius,
         border: `1px solid ${(theme.vars || theme).palette.divider}`,
         backgroundImage: 'none',
@@ -52,7 +54,8 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
   MuiMonthCalendar: {
     styleOverrides: {
       button: ({ theme }) => ({
-        fontSize: theme.typography.body1.fontSize,
+  // use an explicit smaller font for month buttons to reduce visual weight
+  fontSize: '13px',
         color: (theme.vars || theme).palette.grey[600],
         padding: theme.spacing(0.5),
         borderRadius: theme.shape.borderRadius,
@@ -92,7 +95,8 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
   MuiYearCalendar: {
     styleOverrides: {
       button: ({ theme }) => ({
-        fontSize: theme.typography.body1.fontSize,
+  // use an explicit smaller font for year buttons
+  fontSize: '13px',
         color: (theme.vars || theme).palette.grey[600],
         padding: theme.spacing(0.5),
         borderRadius: theme.shape.borderRadius,
@@ -133,7 +137,8 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
   MuiPickersDay: {
     styleOverrides: {
       root: ({ theme }) => ({
-        fontSize: theme.typography.body1.fontSize,
+  // make day numbers a bit smaller so the calendar grid looks balanced
+  fontSize: '12px',
         color: (theme.vars || theme).palette.grey[600],
         padding: theme.spacing(0.5),
         borderRadius: theme.shape.borderRadius,

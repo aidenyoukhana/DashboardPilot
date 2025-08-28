@@ -1,7 +1,3 @@
-import type {} from '@mui/x-date-pickers/themeAugmentation';
-import type {} from '@mui/x-charts/themeAugmentation';
-import type {} from '@mui/x-data-grid-pro/themeAugmentation';
-import type {} from '@mui/x-tree-view/themeAugmentation';
 import { alpha } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -11,22 +7,8 @@ import Header from './components/Header';
 import MainGrid from './components/MainGrid';
 import SideMenu from './components/SideMenu';
 import Profile from './pages/Profile';
-import AppTheme from '../shared-theme/AppTheme';
 import { NavigationProvider } from './context/NavigationContext';
 import { useNavigation } from './hooks/useNavigation';
-import {
-  chartsCustomizations,
-  dataGridCustomizations,
-  datePickersCustomizations,
-  treeViewCustomizations,
-} from './theme/customizations';
-
-const xThemeComponents = {
-  ...chartsCustomizations,
-  ...dataGridCustomizations,
-  ...datePickersCustomizations,
-  ...treeViewCustomizations,
-};
 
 function DashboardContent() {
   const { currentPage } = useNavigation();
@@ -73,13 +55,13 @@ function DashboardContent() {
   );
 }
 
-export default function Dashboard(props: { disableCustomTheme?: boolean }) {
+export default function Dashboard() {
   return (
-    <AppTheme {...props} themeComponents={xThemeComponents}>
+    <>
       <CssBaseline enableColorScheme />
       <NavigationProvider>
         <DashboardContent />
       </NavigationProvider>
-    </AppTheme>
+    </>
   );
 }

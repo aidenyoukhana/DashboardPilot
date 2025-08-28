@@ -44,7 +44,7 @@ function Notification({
   const { severity, actionText, onAction, autoHideDuration } = options;
 
   const handleClose = React.useCallback(
-    (event: unknown, reason?: CloseReason | SnackbarCloseReason) => {
+    (_event: unknown, reason?: CloseReason | SnackbarCloseReason) => {
       if (reason === 'clickaway') {
         return;
       }

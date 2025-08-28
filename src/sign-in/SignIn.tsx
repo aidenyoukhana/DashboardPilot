@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
@@ -8,13 +9,13 @@ import Divider from '@mui/material/Divider';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
 import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './components/ForgotPassword';
-import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from './components/CustomIcons';
 
@@ -60,11 +61,14 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignIn(props: { disableCustomTheme?: boolean }) {
+export default function SignIn() {
+  const navigate = useNavigate();
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -76,24 +80,55 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (emailError || passwordError) {
-      event.preventDefault();
+    event.preventDefault();
+  console.log('handleSubmit called');
+    // run validation, if valid navigate to dashboard
+    if (!validateInputs()) {
       return;
     }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    console.log({ email, password });
+    try {
+      navigate('/dashboard', { replace: true });
+      // fallback: if router navigation didn't change location, force it after a tick
+      setTimeout(() => {
+        if (typeof window !== 'undefined' && window.location.pathname !== '/dashboard') {
+          console.warn('Router navigation did not update location, forcing full-page redirect');
+          window.location.href = '/dashboard';
+        }
+      }, 150);
+    } catch (err) {
+      console.error('navigate error', err);
+      if (typeof window !== 'undefined') window.location.href = '/dashboard';
+    }
+  };
+
+  const handleGoogleSignIn = () => {
+    // Here you would typically handle Google OAuth
+    console.log('Signing in with Google');
+    navigate('/dashboard', { replace: true });
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && window.location.pathname !== '/dashboard') {
+        window.location.href = '/dashboard';
+      }
+    }, 150);
+  };
+
+  const handleFacebookSignIn = () => {
+    // Here you would typically handle Facebook OAuth
+    console.log('Signing in with Facebook');
+    navigate('/dashboard', { replace: true });
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && window.location.pathname !== '/dashboard') {
+        window.location.href = '/dashboard';
+      }
+    }, 150);
   };
 
   const validateInputs = () => {
-    const email = document.getElementById('email') as HTMLInputElement;
-    const password = document.getElementById('password') as HTMLInputElement;
-
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setEmailError(true);
       setEmailErrorMessage('Please enter a valid email address.');
       isValid = false;
@@ -102,7 +137,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
       setEmailErrorMessage('');
     }
 
-    if (!password.value || password.value.length < 6) {
+    if (!password || password.length < 6) {
       setPasswordError(true);
       setPasswordErrorMessage('Password must be at least 6 characters long.');
       isValid = false;
@@ -115,7 +150,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
   };
 
   return (
-    <AppTheme {...props}>
+    <>
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="space-between">
         <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} />
@@ -149,8 +184,9 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
                 name="email"
                 placeholder="your@email.com"
                 autoComplete="email"
-                autoFocus
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 fullWidth
                 variant="outlined"
                 color={emailError ? 'error' : 'primary'}
@@ -166,8 +202,9 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                autoFocus
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 fullWidth
                 variant="outlined"
                 color={passwordError ? 'error' : 'primary'}
@@ -182,7 +219,6 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
               type="submit"
               fullWidth
               variant="contained"
-              onClick={validateInputs}
             >
               Sign in
             </Button>
@@ -201,7 +237,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert('Sign in with Google')}
+              onClick={handleGoogleSignIn}
               startIcon={<GoogleIcon />}
             >
               Sign in with Google
@@ -209,7 +245,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert('Sign in with Facebook')}
+              onClick={handleFacebookSignIn}
               startIcon={<FacebookIcon />}
             >
               Sign in with Facebook
@@ -217,7 +253,8 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             <Typography sx={{ textAlign: 'center' }}>
               Don&apos;t have an account?{' '}
               <Link
-                href="/material-ui/getting-started/templates/sign-in/"
+                component={RouterLink}
+                to="/signup"
                 variant="body2"
                 sx={{ alignSelf: 'center' }}
               >
@@ -227,6 +264,6 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
           </Box>
         </Card>
       </SignInContainer>
-    </AppTheme>
+    </>
   );
 }

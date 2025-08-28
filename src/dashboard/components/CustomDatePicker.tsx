@@ -29,10 +29,10 @@ function ButtonField(props: DatePickerFieldProps) {
       ref={handleRef}
       size="small"
       startIcon={<CalendarTodayRoundedIcon fontSize="small" />}
-      sx={{ minWidth: 'fit-content' }}
+  sx={{ minWidth: 'fit-content', fontSize: '13px', textTransform: 'none' }}
       onClick={() => pickerContext.setOpen((prev) => !prev)}
     >
-      {pickerContext.label ?? valueStr}
+  {pickerContext.label ?? valueStr}
     </Button>
   );
 }
@@ -44,7 +44,7 @@ export default function CustomDatePicker() {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
         value={value}
-        label={value == null ? null : value.format('MMM DD, YYYY')}
+        label={value == null ? null : value.format('MMM D, YYYY')}
         onChange={(newValue) => setValue(newValue)}
         slots={{ field: ButtonField }}
         slotProps={{

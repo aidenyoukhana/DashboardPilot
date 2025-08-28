@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import AppTheme from '../shared-theme/AppTheme';
+import { Link as RouterLink } from 'react-router-dom';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from './components/CustomIcons';
 
@@ -218,7 +219,8 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <Typography sx={{ textAlign: 'center' }}>
               Already have an account?{' '}
               <Link
-                href="/material-ui/getting-started/templates/sign-in/"
+                component={RouterLink}
+                to="/signin"
                 variant="body2"
                 sx={{ alignSelf: 'center' }}
               >
