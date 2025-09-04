@@ -1,0 +1,62 @@
+{
+  "success": true,
+  "message": "Tree view data retrieved successfully",
+  "data": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "children": [
+        {
+          "id": "overview",
+          "label": "Overview"
+        },
+        {
+          "id": "analytics",
+          "label": "Analytics",
+          "children": [
+            { "id": "real-time", "label": "Real-time" },
+            { "id": "reports", "label": "Reports" },
+            { "id": "conversions", "label": "Conversions" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "users",
+      "label": "Users",
+      "children": [
+        { "id": "all-users", "label": "All Users" },
+        { "id": "user-groups", "label": "User Groups" },
+        { "id": "permissions", "label": "Permissions" }
+      ]
+    },
+    {
+      "id": "content",
+      "label": "Content",
+      "children": [
+        { "id": "pages", "label": "Pages" },
+        { "id": "media", "label": "Media Library" },
+        { "id": "categories", "label": "Categories" },
+        {
+          "id": "blog",
+          "label": "Blog",
+          "children": [
+            { "id": "posts", "label": "Posts" },
+            { "id": "comments", "label": "Comments" },
+            { "id": "tags", "label": "Tags" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "children": [
+        { "id": "general", "label": "General" },
+        { "id": "security", "label": "Security" },
+        { "id": "integrations", "label": "Integrations" },
+        { "id": "api-keys", "label": "API Keys" }
+      ]
+    }
+  ]
+}

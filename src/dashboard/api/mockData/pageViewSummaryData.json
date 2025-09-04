@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "message": "Page view summary retrieved successfully",
+  "data": {
+    "totalViews": 1890000,
+    "totalDownloads": 362000,
+    "averageViewsPerMonth": 270000,
+    "growthRate": -8,
+    "conversionRate": 19.15
+  }
+}

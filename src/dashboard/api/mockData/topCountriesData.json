@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "message": "Top countries data retrieved successfully",
+  "data": [
+    { "country": "India", "users": 50000, "sessions": 125430, "percentage": 50, "growth": 15.2, "revenue": 234500 },
+    { "country": "USA", "users": 35000, "sessions": 98750, "percentage": 35, "growth": 8.7, "revenue": 542300 },
+    { "country": "Brazil", "users": 10000, "sessions": 34560, "percentage": 10, "growth": 22.4, "revenue": 123400 },
+    { "country": "Germany", "users": 3200, "sessions": 15670, "percentage": 3.2, "growth": 5.1, "revenue": 89200 },
+    { "country": "UK", "users": 2800, "sessions": 12450, "percentage": 2.8, "growth": -1.2, "revenue": 76500 },
+    { "country": "France", "users": 2400, "sessions": 11230, "percentage": 2.4, "growth": 7.8, "revenue": 65400 },
+    { "country": "Canada", "users": 1900, "sessions": 8760, "percentage": 1.9, "growth": 12.3, "revenue": 54300 },
+    { "country": "Australia", "users": 1600, "sessions": 7890, "percentage": 1.6, "growth": 9.4, "revenue": 43200 },
+    { "country": "Japan", "users": 1400, "sessions": 6540, "percentage": 1.4, "growth": -3.2, "revenue": 67800 },
+    { "country": "South Korea", "users": 1200, "sessions": 5670, "percentage": 1.2, "growth": 18.7, "revenue": 32100 }
+  ]
+}

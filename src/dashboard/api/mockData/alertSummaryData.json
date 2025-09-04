@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "message": "Alert summary retrieved successfully",
+  "data": {
+    "total": 6,
+    "unread": 3,
+    "bySeverity": {
+      "error": 1,
+      "warning": 2,
+      "info": 2,
+      "success": 1
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "message": "Session summary retrieved successfully",
+  "data": {
+    "totalSessions": 234567,
+    "desktopPercentage": 35,
+    "mobilePercentage": 55,
+    "tabletPercentage": 10,
+    "growthRate": 12.5
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "success": true,
+  "message": "Page analytics retrieved successfully",
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "pageTitle": "Homepage",
+        "status": "Online",
+        "users": 5420,
+        "eventCount": 12543,
+        "viewsPerUser": 2.3,
+        "averageTime": "2m 15s",
+        "dailyUsers": [1423, 1345, 1567, 1234, 1456, 1567, 1678, 1543, 1456, 1678, 1789, 1456, 1567, 1678, 1789, 1890, 1456, 1567, 1678, 1789, 1890, 1456, 1567, 1678, 1789, 1890, 1456, 1567, 1678, 1890]
+      },
+      {
+        "id": 2,
+        "pageTitle": "Product Page",
+        "status": "Online",
+        "users": 3210,
+        "eventCount": 8765,
+        "viewsPerUser": 3.1,
+        "averageTime": "3m 42s",
+        "dailyUsers": [856, 923, 1034, 876, 945, 1023, 1156, 987, 876, 1034, 1189, 876, 945, 1034, 1189, 1267, 876, 945, 1034, 1189, 1267, 876, 945, 1034, 1189, 1267, 876, 945, 1034, 1267]
+      },
+      {
+        "id": 3,
+        "pageTitle": "About Us",
+        "status": "Online",
+        "users": 1876,
+        "eventCount": 4321,
+        "viewsPerUser": 1.8,
+        "averageTime": "1m 56s",
+        "dailyUsers": [456, 487, 523, 445, 478, 512, 567, 489, 445, 523, 578, 445, 478, 523, 578, 623, 445, 478, 523, 578, 623, 445, 478, 523, 578, 623, 445, 478, 523, 623]
+      },
+      {
+        "id": 4,
+        "pageTitle": "Contact",
+        "status": "Online",
+        "users": 987,
+        "eventCount": 2345,
+        "viewsPerUser": 2.4,
+        "averageTime": "2m 8s",
+        "dailyUsers": [234, 256, 278, 245, 267, 289, 312, 267, 245, 278, 323, 245, 267, 278, 323, 345, 245, 267, 278, 323, 345, 245, 267, 278, 323, 345, 245, 267, 278, 345]
+      },
+      {
+        "id": 5,
+        "pageTitle": "Blog",
+        "status": "Offline",
+        "users": 2134,
+        "eventCount": 5678,
+        "viewsPerUser": 2.7,
+        "averageTime": "4m 23s",
+        "dailyUsers": [567, 598, 634, 578, 612, 645, 687, 612, 578, 634, 698, 578, 612, 634, 698, 723, 578, 612, 634, 698, 723, 578, 612, 634, 698, 723, 578, 612, 634, 723]
+      },
+      {
+        "id": 6,
+        "pageTitle": "Services",
+        "status": "Online",
+        "users": 3456,
+        "eventCount": 7890,
+        "viewsPerUser": 2.9,
+        "averageTime": "3m 15s",
+        "dailyUsers": [789, 823, 867, 756, 834, 912, 945, 823, 756, 867, 978, 756, 834, 867, 978, 1023, 756, 834, 867, 978, 1023, 756, 834, 867, 978, 1023, 756, 834, 867, 1023]
+      },
+      {
+        "id": 7,
+        "pageTitle": "Portfolio",
+        "status": "Online",
+        "users": 2789,
+        "eventCount": 6543,
+        "viewsPerUser": 2.1,
+        "averageTime": "2m 45s",
+        "dailyUsers": [634, 667, 712, 623, 689, 734, 767, 667, 623, 712, 789, 623, 689, 712, 789, 834, 623, 689, 712, 789, 834, 623, 689, 712, 789, 834, 623, 689, 712, 834]
+      },
+      {
+        "id": 8,
+        "pageTitle": "FAQ",
+        "status": "Online",
+        "users": 1567,
+        "eventCount": 3421,
+        "viewsPerUser": 1.9,
+        "averageTime": "1m 32s",
+        "dailyUsers": [345, 378, 412, 334, 367, 401, 434, 378, 334, 412, 445, 334, 367, 412, 445, 478, 334, 367, 412, 445, 478, 334, 367, 412, 445, 478, 334, 367, 412, 478]
+      }
+    ],
+    "total": 8,
+    "page": 1,
+    "pageSize": 20
+  }
+}

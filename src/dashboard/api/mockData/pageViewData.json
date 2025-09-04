@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "message": "Page view data retrieved successfully",
+  "data": [
+    { "month": "Jan", "views": 230000, "downloads": 45000 },
+    { "month": "Feb", "views": 180000, "downloads": 38000 },
+    { "month": "Mar", "views": 250000, "downloads": 52000 },
+    { "month": "Apr", "views": 290000, "downloads": 48000 },
+    { "month": "May", "views": 320000, "downloads": 65000 },
+    { "month": "Jun", "views": 280000, "downloads": 41000 },
+    { "month": "Jul", "views": 340000, "downloads": 73000 }
+  ]
+}

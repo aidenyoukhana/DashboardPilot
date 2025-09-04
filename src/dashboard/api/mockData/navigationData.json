@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "message": "Navigation data retrieved successfully",
+  "data": [
+    {
+      "label": "Dashboard",
+      "icon": "dashboard",
+      "href": "/dashboard"
+    },
+    {
+      "label": "Analytics",
+      "icon": "analytics",
+      "children": [
+        { "label": "Overview", "icon": "overview", "href": "/analytics/overview" },
+        { "label": "Reports", "icon": "reports", "href": "/analytics/reports" },
+        { "label": "Real-time", "icon": "realtime", "href": "/analytics/realtime" }
+      ]
+    },
+    {
+      "label": "Users",
+      "icon": "users",
+      "children": [
+        { "label": "All Users", "icon": "users", "href": "/users" },
+        { "label": "User Groups", "icon": "groups", "href": "/users/groups" },
+        { "label": "Permissions", "icon": "permissions", "href": "/users/permissions" }
+      ]
+    },
+    {
+      "label": "Content",
+      "icon": "content",
+      "children": [
+        { "label": "Pages", "icon": "pages", "href": "/content/pages" },
+        { "label": "Media", "icon": "media", "href": "/content/media" },
+        { "label": "Categories", "icon": "categories", "href": "/content/categories" }
+      ]
+    },
+    {
+      "label": "Settings",
+      "icon": "settings",
+      "children": [
+        { "label": "General", "icon": "general", "href": "/settings/general" },
+        { "label": "Security", "icon": "security", "href": "/settings/security" },
+        { "label": "Integrations", "icon": "integrations", "href": "/settings/integrations" },
+        { "label": "API Keys", "icon": "keys", "href": "/settings/api-keys" }
+      ]
+    },
+    {
+      "label": "Help & Support",
+      "icon": "help",
+      "children": [
+        { "label": "Documentation", "icon": "docs", "href": "/help/docs" },
+        { "label": "Contact Support", "icon": "support", "href": "/help/support" },
+        { "label": "Feature Requests", "icon": "feature", "href": "/help/features" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "message": "Alerts retrieved successfully",
+  "data": [
+    {
+      "id": "alert_1",
+      "title": "System Maintenance",
+      "message": "Scheduled maintenance will occur tonight from 11 PM to 1 AM EST.",
+      "severity": "info",
+      "timestamp": "2024-09-04T18:00:00.000Z"
+    },
+    {
+      "id": "alert_2",
+      "title": "High Traffic Detected",
+      "message": "Your website is experiencing 300% higher traffic than usual.",
+      "severity": "warning",
+      "timestamp": "2024-09-04T19:30:00.000Z"
+    },
+    {
+      "id": "alert_3",
+      "title": "Backup Completed",
+      "message": "Daily backup completed successfully. 1.2GB backed up.",
+      "severity": "success",
+      "timestamp": "2024-09-04T16:00:00.000Z"
+    },
+    {
+      "id": "alert_4",
+      "title": "SSL Certificate Expiring",
+      "message": "Your SSL certificate will expire in 7 days. Please renew it.",
+      "severity": "error",
+      "timestamp": "2024-09-04T14:00:00.000Z"
+    },
+    {
+      "id": "alert_5",
+      "title": "New User Registration",
+      "message": "50 new users registered in the last hour.",
+      "severity": "info",
+      "timestamp": "2024-09-04T19:45:00.000Z"
+    },
+    {
+      "id": "alert_6",
+      "title": "Performance Alert",
+      "message": "Server response time is above 2 seconds. Check server performance.",
+      "severity": "warning",
+      "timestamp": "2024-09-04T19:15:00.000Z"
+    }
+  ]
+}
