@@ -3,6 +3,8 @@
 A modern, responsive dashboard application built with React, TypeScript, and Material UI, featuring seamless integration with Botpress for intelligent data management and chatbot capabilities.
 
 <img width="1840" height="1191" alt="image" src="https://github.com/user-attachments/assets/5d945a6f-7354-4245-b92e-f9b4314a07b3" />
+<img width="1840" height="1191" alt="image" src="https://github.com/user-attachments/assets/1ab47cf7-5a0e-468f-a120-fafbe8d7d827" />
+
 
 
 
