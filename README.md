@@ -4,6 +4,11 @@ A modern, responsive dashboard application built with React, TypeScript, and Mat
 
 <img width="1840" height="1191" alt="image" src="https://github.com/user-attachments/assets/5d945a6f-7354-4245-b92e-f9b4314a07b3" />
 <img width="1840" height="1191" alt="image" src="https://github.com/user-attachments/assets/1ab47cf7-5a0e-468f-a120-fafbe8d7d827" />
+<img width="612" height="1191" alt="image" src="https://github.com/user-attachments/assets/6fed18fb-5c42-4f0f-9c6b-fa053fb7285c" />
+<img width="612" height="1191" alt="image" src="https://github.com/user-attachments/assets/ca9dd78b-8df7-4226-8e2e-909b057593e9" />
+
+
+
 
 
 
