@@ -44,7 +44,7 @@ export const BulkUploader: React.FC<BulkUploaderProps> = ({
     setSelectedSources(prev =>
       prev.includes(sourceId)
         ? prev.filter(id => id !== sourceId)
-        : [...prev, sourceId]
+  : [...prev, sourceId]
     );
   };
 
@@ -79,8 +79,9 @@ export const BulkUploader: React.FC<BulkUploaderProps> = ({
 
       const botpressService = new BotpressService(config);
       const results: Array<{ source: string; success: boolean; response?: BotpressTableResponse; error?: string }> = [];
+      // Match by source id to be deterministic
       const selectedSourceObjects = dataSources.filter(source => 
-        selectedSources.includes(source.name)
+        selectedSources.includes(source.id)
       );
 
       for (let i = 0; i < selectedSourceObjects.length; i++) {
@@ -97,14 +98,15 @@ export const BulkUploader: React.FC<BulkUploaderProps> = ({
           const data = await source.getData();
           const tableRows = DataFormatter.formatAsTableRows(data);
           const tableName = getTableName(data.type);
-          
-          const response = await botpressService.createTableRows(tableName, tableRows);
+
+          // Use syncTableData to clear existing rows before uploading to avoid duplicates
+          const response = await botpressService.syncTableData(tableName, tableRows);
           results.push({ source: source.name, success: true, response });
         } catch (error) {
-          results.push({ 
-            source: source.name, 
-            success: false, 
-            error: error instanceof Error ? error.message : 'Upload failed' 
+          results.push({
+            source: source.name,
+            success: false,
+            error: error instanceof Error ? error.message : 'Upload failed'
           });
         }
       }
@@ -153,13 +155,13 @@ export const BulkUploader: React.FC<BulkUploaderProps> = ({
           <List>
             {dataSources.map((source) => (
               <ListItemButton
-                key={source.name}
-                onClick={() => handleToggleSource(source.name)}
+                key={source.id}
+                onClick={() => handleToggleSource(source.id)}
                 disabled={isUploading}
               >
                 <ListItemIcon>
                   <Checkbox
-                    checked={selectedSources.includes(source.name)}
+                    checked={selectedSources.includes(source.id)}
                     disabled={isUploading}
                   />
                 </ListItemIcon>

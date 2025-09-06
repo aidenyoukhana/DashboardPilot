@@ -33,7 +33,18 @@ export const BotpressUploader: React.FC<BotpressUploaderProps> = ({
   onUploadComplete,
   onError,
 }) => {
-  const [tableName, setTableName] = useState<string>('dashboard_data');
+  // Default table name based on data.type to keep table naming consistent
+  const defaultTableName = (() => {
+    const map: Record<string, string> = {
+      employees: 'dashboard_employeesTable',
+      analytics: 'dashboard_analyticsTable',
+      stats: 'dashboard_statsTable',
+      sessions: 'dashboard_sessionsTable',
+    };
+    return map[data.type] || `dashboard_${data.type}Table` || 'dashboard_data';
+  })();
+
+  const [tableName, setTableName] = useState<string>(defaultTableName);
   const [progress, setProgress] = useState<UploadProgress>({
     status: 'idle',
     progress: 0,
@@ -73,13 +84,14 @@ export const BotpressUploader: React.FC<BotpressUploaderProps> = ({
         message: 'Uploading to Botpress Tables...',
       });
 
-      const service = new BotpressService(config);
-      const response = await service.createTableRows(tableName, tableRows);
+  const service = new BotpressService(config);
+  // Use syncTableData which clears existing rows before uploading to avoid duplicates
+  const response = await service.syncTableData(tableName, tableRows);
 
       setProgress({
         status: 'success',
         progress: 100,
-        message: `Successfully uploaded ${tableRows.length} rows to table "${tableName}"`,
+  message: `Successfully synced ${tableRows.length} rows to table "${tableName}" (existing rows cleared)`,
       });
 
       onUploadComplete?.(response);

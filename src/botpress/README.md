@@ -54,9 +54,9 @@ For uploading individual datasets:
 import { BotpressUploader } from './botpress';
 
 const config = {
-  botId: 'your-bot-id',
-  token: 'your-token',
-  workspaceId: 'your-workspace-id',
+  botId: import.meta.env.VITE_BOTPRESS_BOT_ID,
+  token: import.meta.env.VITE_BOTPRESS_TOKEN,
+  workspaceId: import.meta.env.VITE_BOTPRESS_WORKSPACE_ID,
 };
 
 const data = {
